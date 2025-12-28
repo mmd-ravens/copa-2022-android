@@ -1,5 +1,7 @@
 package com.mamede.copa2022dadio.data.local.entity
 
+import com.mamede.copa2022dadio.domain.model.Stadium
+
 /**
  * Representa as informações de um estádio onde ocorre uma partida da Copa.
  *

@@ -3,6 +3,7 @@ package com.mamede.copa2022dadio.data.local.entity
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.mamede.copa2022dadio.domain.model.Match
 
 @Entity(tableName = "matches")
 data class MatchEntity(
@@ -15,5 +16,8 @@ data class MatchEntity(
 
     val team1: String,
     val team2: String,
-    val date: String
+    val date: String,
+
+    //controle de notificação local
+    val notificationEnabled: Boolean = false
 )
