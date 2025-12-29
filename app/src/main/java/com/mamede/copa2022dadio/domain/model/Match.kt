@@ -7,6 +7,7 @@ data class Match(
     val stadium: Stadium,
     val team1: String,
     val team2: String,
-    val date: String
+    val date: String,
+    val notificationEnabled: Boolean
 )
 
