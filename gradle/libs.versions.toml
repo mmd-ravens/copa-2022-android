@@ -15,6 +15,9 @@ room = "2.8.4"
 retrofit = "3.0.0"
 okhttp = "5.3.2"
 hiltNavigationCompose = "1.3.0"
+coil = "2.7.0"
+work = "2.9.0"
+hiltWork = "1.2.0"
 
 
 [libraries]
@@ -34,6 +37,7 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+compose-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 
 # Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -51,6 +55,15 @@ retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-
 
 # OkHttp (logs de rede)
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+io-coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+
+# WorkManager (Core)
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+
+# Integração Hilt + WorkManager
+androidx-hilt-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltWork" }
+# Compilador específico para @HiltWorker (importante!)
+androidx-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltWork" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

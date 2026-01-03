@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
@@ -61,11 +61,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.dagger.compiler)
     implementation(libs.bundles.networking)
+    implementation(libs.io.coil.kt.compose)
+    implementation(libs.compose.icons.extended)
 
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler) // KSP substitui o kapt aqui
     implementation(libs.androidx.hilt.navigation.compose)
+    // WorkManager + Hilt
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work)
+    // Processador de anotação para o Worker (Use ksp pois você já configurou o plugin)
+    ksp(libs.androidx.hilt.compiler)
 
     // Room
     implementation(libs.room.runtime)

@@ -23,5 +23,6 @@ fun MatchEntity.toDomain() = Match(
     stadium = Stadium(this.stadium.stadiumName, this.stadium.stadiumImage),
     team1 = this.team1,
     team2 = this.team2,
-    date = this.date
+    date = this.date,
+    notificationEnabled = this.notificationEnabled
 )
