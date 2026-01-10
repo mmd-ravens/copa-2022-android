@@ -1,5 +1,6 @@
 package com.mamede.copa2022dadio.domain.usecase
 
+import com.mamede.copa2022dadio.data.WorkManagerScheduler
 import com.mamede.copa2022dadio.domain.repository.MatchesRepository
 import javax.inject.Inject
 
@@ -18,7 +19,8 @@ import javax.inject.Inject
  * tirar o [repository] sem que você precise criá-lo manualmente (new MatchesRepository).
  */
 class DisableNotificationUseCase @Inject constructor(
-    private val repository: MatchesRepository
+    private val repository: MatchesRepository,
+    private val scheduler: WorkManagerScheduler
 ) {
     /**
      * Esta é a função principal que executa a ação.
@@ -38,5 +40,7 @@ class DisableNotificationUseCase @Inject constructor(
     // Retorna Unit (nada)
     suspend operator fun invoke(matchId: Int) {
         repository.disableNotificationFor(matchId)
+
+        scheduler.cancel(matchId)
     }
 }

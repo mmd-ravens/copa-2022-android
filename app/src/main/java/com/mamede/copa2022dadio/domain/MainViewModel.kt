@@ -1,5 +1,7 @@
 package com.mamede.copa2022dadio.domain
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mamede.copa2022dadio.domain.Match.MainUiState
@@ -93,12 +95,13 @@ class MainViewModel @Inject constructor(
      *
      * @param match A partida que o usuário interagiu.
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     fun toggleNotification(match: Match) {
         viewModelScope.launch {
             if (match.notificationEnabled) {
                 disableNotificationUseCase(match.id)
             } else {
-                enableNotificationUseCase(match.id)
+                enableNotificationUseCase(match)
             }
             // não precisa att o _state manualmente, pois
             // o getMatchesUseCase é um Flow, então assim que o BD mudar,
